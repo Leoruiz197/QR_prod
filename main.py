@@ -2,8 +2,8 @@ import qrcode
 import os
 from qrcode.image.styledpil import StyledPilImage
 from qrcode.image.styles.moduledrawers import RoundedModuleDrawer, SquareModuleDrawer, CircleModuleDrawer
-
 from PIL import Image
+from leitura import processar_qrcodes
 
 class GeradorQRCode:
     def __init__(self):
@@ -173,8 +173,23 @@ class GeradorQRCode:
         print("• Cores claras podem dificultar a leitura")
         print("• Para melhor qualidade, use correção de erro alta")
 
+def menu_principal():
+    '''Exibe o menu principal'''
+    print("\n" + "="*50)
+    print("🔳  MENU PRINCIPAL  🔳".center(50))
+    print("="*50)
+    print("1️⃣ Ler QR Code")
+    print("2️⃣ Gerar QR Code")
+    print("="*50)
+
+def ler_qrcode():
+    '''Menu para ler o QR Code'''
+    print("\n" + "="*50)
+    print("📷 Leia o QR Code")
+    processar_qrcodes()
+
 def mostrar_menu():
-    """Exibe o menu principal"""
+    """Exibe o menu de qr codes"""
     print("\n" + "="*50)
     print("🔳  GERADOR DE QR CODE  🔳".center(50))
     print("="*50)
@@ -194,34 +209,42 @@ def main():
     
     while True:
         try:
-            mostrar_menu()
+            menu_principal()
             opcao = input("Escolha uma opção: ").strip()
-            
+
             if opcao == '1':
-                gerador.gerar_qrcode_basico()
+                ler_qrcode()
             elif opcao == '2':
-                gerador.gerar_qrcode_personalizado()
-            elif opcao == '3':
-                gerador.listar_qrcodes()
-            elif opcao == '4':
-                gerador.abrir_pasta_qrcodes()
-            elif opcao == '5':
-                gerador.mostrar_info()
+                mostrar_menu()
+                opcao_menu = input("Escolha uma opção: ").strip()
+                if opcao_menu == '1':
+                    gerador.gerar_qrcode_basico()
+                elif opcao_menu == '2':
+                 gerador.gerar_qrcode_personalizado()
+                elif opcao_menu == '3':
+                    gerador.listar_qrcodes()
+                elif opcao_menu == '4':
+                    gerador.abrir_pasta_qrcodes()
+                elif opcao_menu == '5':
+                    gerador.mostrar_info()
+                elif opcao_menu == '0':
+                    print("\n👋 Obrigado por usar o Gerador de QR Code!")
+                    break
+                else:
+                    print("❌ Opção inválida! Tente novamente.")
+
             elif opcao == '0':
                 print("\n👋 Obrigado por usar o Gerador de QR Code!")
                 break
             else:
                 print("❌ Opção inválida! Tente novamente.")
-            
-            # Pausa para o usuário ver o resultado
-            input("\n⏸️  Pressione Enter para continuar...")
-            
+
         except KeyboardInterrupt:
             print("\n\n👋 Programa encerrado pelo usuário.")
             break
         except Exception as e:
             print(f"❌ Erro inesperado: {e}")
-            input("⏸️  Pressione Enter para continuar...")
+            input("⏸️ Pressione Enter para continuar...")
 
-if __name__ == "__main__":
+if __name__ == "__main__": 
     main()
