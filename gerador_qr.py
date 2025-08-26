@@ -1,7 +1,7 @@
 import qrcode
 
-def gerar_qr(nome_produto):
-    data = input("Digite o nome do produto: ")
+def gerar_qr():
+    nome_produto = input("Digite o nome do produto: ")
 
     qr = qrcode.QRCode(
         version =1, 
@@ -10,12 +10,12 @@ def gerar_qr(nome_produto):
         border = 4
     )
 
-    qr.add_data(nome_produto)
+    qr.add_data(nome_produto.title())
     qr.make(fit = True)
 
     img = qr.make_image(fill_color="black", back_color="white")
 
-    img.save(f"./qrcodes/{nome_produto}.png")
+    img.save(f"./qrcodes/{nome_produto.lower()}.png")
     print("QRcode gerado com sucesso")
 
 if __name__ == "__main__":

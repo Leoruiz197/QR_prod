@@ -22,5 +22,13 @@
     {
         "nome": "Coca COla",
         "quantidade": 2
+    },
+    {
+        "nome": "chá",
+        "quantidade": 2
+    },
+    {
+        "nome": "manguito",
+        "quantidade": 1
     }
 ]
