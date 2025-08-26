@@ -1,70 +1,10 @@
 [
     {
-        "nome": "RedBull",
-        "quantidade": 4
+        "nome": "agua",
+        "quantidade": 8
     },
     {
-        "nome": "Agua",
-        "quantidade": 3
-    },
-    {
-        "nome": "Arroz",
-        "quantidade": 2
-    },
-    {
-        "nome": "Feijao",
-        "quantidade": 3
-    },
-    {
-        "nome": "teste",
-        "quantidade": 3
-    },
-    {
-        "nome": "Coca COla",
-        "quantidade": 3
-    },
-    {
-        "nome": "chá",
-        "quantidade": 3
-    },
-    {
-        "nome": "manguito",
-        "quantidade": 1
-    },
-    {
-        "nome": "Blusa",
-        "quantidade": 1
-    },
-    {
-        "nome": "Calça",
-        "quantidade": 1
-    },
-    {
-        "nome": "Fanta Uva",
-        "quantidade": 1
-    },
-    {
-        "nome": "Guarana",
-        "quantidade": 1
-    },
-    {
-        "nome": "maguito",
-        "quantidade": 1
-    },
-    {
-        "nome": "Vodka Smirnof",
-        "quantidade": 1
-    },
-    {
-        "nome": "Celular",
-        "quantidade": 1
-    },
-    {
-        "nome": "Fone",
-        "quantidade": 1
-    },
-    {
-        "nome": "Caixa de som",
-        "quantidade": 1
+        "nome": "coca cola",
+        "quantidade": 5
     }
 ]

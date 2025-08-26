@@ -3,7 +3,7 @@ import os
 from qrcode.image.styledpil import StyledPilImage
 from qrcode.image.styles.moduledrawers import RoundedModuleDrawer, SquareModuleDrawer, CircleModuleDrawer
 from PIL import Image
-from leitura import processar_qrcodes
+from produtos import CAMINHO_ARQUIVO, adicionar_produto
 
 class GeradorQRCode:
     def __init__(self):
@@ -178,28 +178,56 @@ def menu_principal():
     print("\n" + "="*50)
     print("🔳  MENU PRINCIPAL  🔳".center(50))
     print("="*50)
-    print("1️⃣ Ler QR Code")
-    print("2️⃣ Gerar QR Code")
+    print("1️⃣  - Ler QR Code")
+    print("2️⃣  - Gerar QR Code")
+    print("3️⃣  - Limpar JSON")
+    print("4️⃣  - Limpar QRs")
+    print("0️⃣  - Sair")
     print("="*50)
 
 def ler_qrcode():
     '''Menu para ler o QR Code'''
-    print("\n" + "="*50)
     print("📷 Leia o QR Code")
-    processar_qrcodes()
+    while True:
+        leitura = input("Faça a Leitura (ou digite -1 para sair): ")
+        if leitura.strip() == "-1":
+            print("🔙 Saindo da leitura de QR Code.")
+            break
+        adicionar_produto(leitura)
 
 def mostrar_menu():
     """Exibe o menu de qr codes"""
     print("\n" + "="*50)
     print("🔳  GERADOR DE QR CODE  🔳".center(50))
     print("="*50)
-    print("1️⃣  Gerar QR Code Básico")
-    print("2️⃣  Gerar QR Code Personalizado")
-    print("3️⃣  Listar QR Codes Salvos")
-    print("4️⃣  Abrir Pasta de QR Codes")
-    print("5️⃣  Informações")
-    print("0️⃣  Sair")
+    print("1️⃣  - Gerar QR Code Básico")
+    print("2️⃣  - Gerar QR Code Personalizado")
+    print("3️⃣  - Listar QR Codes Salvos")
+    print("4️⃣  - Abrir Pasta de QR Codes")
+    print("5️⃣  - Informações")
+    print("0️⃣  - Sair")
     print("="*50)
+
+def limpar_json():
+    import json
+    if(input("Tem certeza que deseja deletar todos os dados no JSON? S ou N ").lower() == "s"):
+        CAMINHO_ARQUIVO = 'dados.json'
+        with open(CAMINHO_ARQUIVO, 'w', encoding='utf-8') as arquivo:
+            json.dump([], arquivo, ensure_ascii=False)
+    else:
+        print("❌ Operação cancelada.")
+
+def limpar_qrcode():
+    import os
+    
+    if(input("Tem certeza que deseja deletar todos os QRs gerados? S ou N ").lower() == "s"):
+        pasta = "./qrcodes"
+        for arquivo in os.listdir(pasta):
+            caminho = os.path.join(pasta, arquivo)
+            if os.path.isfile(caminho):
+                os.remove(caminho)
+    else:
+        print("❌ Operação cancelada.")
 
 def main():
     """Função principal do programa"""
@@ -228,13 +256,16 @@ def main():
                 elif opcao_menu == '5':
                     gerador.mostrar_info()
                 elif opcao_menu == '0':
-                    print("\n👋 Obrigado por usar o Gerador de QR Code!")
+                    print("\n👋 Obrigado por usar o Programa!")
                     break
                 else:
                     print("❌ Opção inválida! Tente novamente.")
-
+            elif opcao == '3':
+                limpar_json()
+            elif opcao == '4':
+                limpar_qrcode()
             elif opcao == '0':
-                print("\n👋 Obrigado por usar o Gerador de QR Code!")
+                print("\n👋 Obrigado por usar o Programa!")
                 break
             else:
                 print("❌ Opção inválida! Tente novamente.")
