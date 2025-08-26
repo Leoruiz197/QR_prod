@@ -8,6 +8,7 @@ __pycache__/
 
 # Distribution / packaging
 .Python
+qrcodes_salvos/
 build/
 develop-eggs/
 dist/
