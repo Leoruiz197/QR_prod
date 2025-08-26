@@ -14,5 +14,21 @@
     {
         "nome": "Feijao",
         "quantidade": 2
+    },
+    {
+        "nome": "teste",
+        "quantidade": 2
+    },
+    {
+        "nome": "Coca COla",
+        "quantidade": 2
+    },
+    {
+        "nome": "chá",
+        "quantidade": 2
+    },
+    {
+        "nome": "manguito",
+        "quantidade": 1
     }
 ]

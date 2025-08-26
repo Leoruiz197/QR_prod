@@ -1,4 +1,5 @@
 from produtos import adicionar_produto, ler_produtos
+from gerador_qr import gerar_qr
 
 
 def main():
