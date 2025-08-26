@@ -14,5 +14,5 @@ qr.make(fit = True)
 
 img = qr.make_image(fill_color="black", back_color="white")
 
-img.save(f"./qrcodes_salvos/{data}.png")
+img.save(f"./qrcodes/{data}.png")
 print("QRcode gerado com sucesso")

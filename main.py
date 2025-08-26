@@ -1,5 +1,5 @@
 from produtos import adicionar_produto, ler_produtos
-from geracaoQrcode import gerar_qrcode
+
 
 def main():
     nome_produto = input("Digite o nome do produto: ")
@@ -8,7 +8,7 @@ def main():
     adicionar_produto(nome_produto)
 
     # Gera QR Code automaticamente na pasta 'qrcodes'
-    gerar_qrcode(nome_produto)
+    gerar_qr(nome_produto)
 
     # Lista todos os produtos cadastrados
     produtos = ler_produtos()
